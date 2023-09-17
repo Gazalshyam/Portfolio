@@ -1,0 +1,155 @@
+.stage-cube-cont{
+    width:50%;
+    height:100%;
+    top:0;
+    padding-top: 18%;
+    margin-left: 0;
+    position:absolute;
+    right:0;
+    overflow:hidden;
+}
+@function multiple-box-shadow ($n){
+    $value: '#{random(2000)}px #{random(2000)}px black';
+    @for $i from 2 through $n{
+      $value: '#{$value} , #{random(2000)}px #{random(2000)}px black';
+    }
+    @return unquote($value)
+  }
+
+  $shadows-small:  multiple-box-shadow(700);
+  $shadows-medium: multiple-box-shadow(200);
+  $shadows-big:    multiple-box-shadow(100);
+
+  .stars{
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: shadows-small;
+    animation: animStar 50s linear infinite;
+
+    &:after{
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: shadows-small;
+  }
+  }
+
+  .stars2{
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: shadows-medium;
+    animation: animStar 100s linear infinite;
+
+    &:after{
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow:shadows-medium;
+    }
+  }
+
+  .stars3{
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow:shadows-big;
+    animation: animStar 150s linear infinite;
+
+    &:after{
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow:shadows-big;
+  }
+  }
+
+
+  @keyframes animStar{
+      from{
+      transform: translateY(0px);
+      }
+      to{
+      transform: translateY(-2000px);
+      }
+  }
+
+
+.cubespinner{
+    animation-name:spincube;
+    animation-timing-function:ease-in-out;
+    animation-iteration-count:infinite ;
+    animation-duration: 12s;
+    transform-style: preserve-3d;
+    transform-origin: 100px 100px 0;
+    margin-left:calc(50% - 100px);
+
+    div{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(255,255,255,0.4);
+        border: 1px solid #ccc;
+        font-size: 100px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        box-shadow: 0 0 20px 0px lavenderblush;
+    }
+    .face1{
+        transform:translateZ(100px);
+    }
+    .face2{
+        transform:rotateY(90deg) translateZ(100px);
+    }
+    .face3{
+        transform:rotateY(90deg) rotateX(90deg) translateZ(100px);
+    }
+    .face4{
+        transform:rotateY(180deg) rotateZ(90deg) translateZ(100px);
+    }
+    .face5{
+        transform:rotateY(-90deg) rotateZ(90deg) translateZ(100px);
+        .js{
+            transform:rotate(270deg);
+        }
+    }
+    .face6{
+        transform:rotateX(-90deg) translateZ(100px);
+    }
+
+
+
+}
+
+@keyframes spincube{
+    from,to{
+        transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    16%{
+        transform:rotateY(-90deg);
+    }
+    33%{
+        transform:rotateY(-90deg) rotateZ(90deg);
+    }
+    50%{
+        transform:rotateY(-180deg) rotateZ(90deg);
+    }
+    66%{
+        transform:rotateY(-270deg) rotateZ(90deg);
+    }
+    83%{
+        transform:rotateY(90deg);
+    }
+
+}

@@ -1,0 +1,44 @@
+.logo-container{
+    z-index:0;
+    height:465px;
+    width: 400px;
+    position:absolute;
+    top:0;
+    right:15%;
+    bottom:0;
+    left:auto;
+    margin:auto;
+    animation:25s 30s ease-in-out;
+
+
+    svg{
+        width: 100%;
+        height: 450 px;
+        bottom:0;
+        transform: rotateZ(15deg) !important;
+        animation: 25s 30s ease-in-out;
+
+    }
+    .solid-logo{
+        position: absolute;
+        top:auto;
+        right:auto;
+        bottom:auto;
+        left:0;
+        margin:auto;
+        width: 100%;
+        opacity: 0;
+        transform: rotateZ(15deg);
+        z-index: 1;
+        animation: 25s 30s ease-in-out;
+
+    }
+}
+.svg-container{
+    stroke:#ffd9c0;
+    stroke-width: 1.5;
+    animation-duration:25s;
+    animation-delay: 25s;
+    animation-timing-function: ease-in-out;
+
+}
